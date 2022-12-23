@@ -36,6 +36,12 @@ const questions = [
         message: 'What are the test instructions for your project?',
         name: 'test',
     },
+    {
+        type: 'list',
+        message: 'Please choose a liscene',
+        name: 'license',
+        choices: ['MIT license', 'Apache License 2.0.', 'GNU General Public License']
+    }
 ];
 
 // TODO: Create a function to write README file
@@ -51,7 +57,6 @@ function init() {
         .prompt(questions)
         .then((response) => {
             data = generateMarkdown(response);
-            console.log(data);
             writeToFile('README.md', data);
         });
 
